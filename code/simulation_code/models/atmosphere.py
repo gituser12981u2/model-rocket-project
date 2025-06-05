@@ -13,13 +13,13 @@ class StandardAtmosphere:
         """Calculate air density at given altitude."""
         if altitude < 11000:  # Troposphere
             T = 288.15 - 0.00649 * altitude
-            p = 101325 * (T / 288.15)**5.256
+            p = 101325 * (T / 288.15) ** 5.256
         elif altitude < 20000:  # Lower stratosphere
             T = 216.65
             p = 22632 * np.exp(-0.00015769 * (altitude - 11000))
         else:  # Upper Stratosphere
             T = 216.65 + 0.001 * (altitude - 20000)
-            p = 5474.9 * (T / 216.65)**(-34.163)
+            p = 5474.9 * (T / 216.65) ** (-34.163)
 
         # Ideal gas law
         rho = p / (self.R * T)
